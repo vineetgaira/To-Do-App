@@ -26,16 +26,30 @@ class Task:
     
 
 while True:
-    task_id = random.randint(1,1001)
-    title = input(Fore.BLUE + "Enter title of the task: ")
-    description = input(Fore.BLUE + "Enter description of the task: ")
-    task = Task(task_id, title, description)
-    print(Fore.LIGHTCYAN_EX + f"{task}")
-    ask_exit = input(Fore.BLUE + "Do you wanna add one more task? y/n: ").strip().lower()
-    if ask_exit == "y":
-        continue
-    elif ask_exit == "n":
-        break
-    else:
-        print(Fore.RED + "Please enter 'y/n.")
-  
+    print(Fore.BLUE + Style.BRIGHT + "Press 1 to write new tasks." + Style.RESET_ALL)
+    print(Fore.BLUE + Style.BRIGHT + "Press 2 to see and mark tasks." + Style.RESET_ALL)
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        task_id = random.randint(1,1001)
+        title = input(Fore.BLUE + "Enter title of the task: ")
+        description = input(Fore.BLUE + "Enter description of the task: ")
+        task = Task(task_id, title, description)
+        ask_exit = input(Fore.BLUE + "Do you wanna add one more task? y/n: ").strip().lower()
+        if ask_exit == "y":
+            continue
+        elif ask_exit == "n":
+            break
+        else:
+            print(Fore.RED + "Please enter 'y/n'.")
+    elif choice == 2:
+        print(Fore.LIGHTCYAN_EX + task)
+        choice = input(Fore.BLUE + "Have you completed the task? y/n: ").strip().lower()
+        if choice == "y":
+            task.complete()
+            print(Fore.LIGHTCYAN_EX + task)
+        elif ask_exit == "n":
+            task.uncomplete()
+            print(Fore.LIGHTCYAN_EX + task)
+        else:
+            break
+
