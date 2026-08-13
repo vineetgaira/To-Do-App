@@ -30,7 +30,6 @@ while True:
     title = input(Fore.BLUE + "Enter title of the task: ")
     description = input(Fore.BLUE + "Enter description of the task: ")
     task = Task(task_id, title, description)
-    task_id+=1
     print(Fore.LIGHTCYAN_EX + f"{task}")
     ask_exit = input(Fore.BLUE + "Do you wanna add one more task? y/n: ").strip().lower()
     if ask_exit == "y":
