@@ -1,0 +1,16 @@
+Create task
+View tasks
+Complete task
+Uncomplete task
+Edit task
+Delete task
+Search tasks
+Filter tasks
+Sort tasks
+Set priority
+Set due date
+Save tasks
+Load tasks
+Show statistics
+Export tasks
+Tests
