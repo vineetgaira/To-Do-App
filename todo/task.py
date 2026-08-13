@@ -25,10 +25,10 @@ class Task:
         return f"[{status}] {self.task_id} - {self.title} - {self.description}"
     
 
-while True:
+while True: 
     print(Fore.BLUE + Style.BRIGHT + "Press 1 to write new tasks." + Style.RESET_ALL)
     print(Fore.BLUE + Style.BRIGHT + "Press 2 to see and mark tasks." + Style.RESET_ALL)
-    choice = int(input("Enter your choice: "))
+    choice = int(input(Fore.BLUE + "Enter your choice: "))
     if choice == 1:
         task_id = random.randint(1,1001)
         title = input(Fore.BLUE + "Enter title of the task: ")

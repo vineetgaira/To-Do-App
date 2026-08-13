@@ -1,9 +1,17 @@
-Create task
+============================================
+The current focus wil be on these operations:
+============================================
+Create task  
 View tasks
 Complete task
 Uncomplete task
 Edit task
 Delete task
+
+
+=====================
+Future Enhancements : 
+=====================
 Search tasks
 Filter tasks
 Sort tasks
@@ -14,3 +22,4 @@ Load tasks
 Show statistics
 Export tasks
 Tests
+
