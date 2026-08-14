@@ -3,6 +3,18 @@ from colorama import Fore, Style
 colorama.init(autoreset=True)
 
 
+
+MENU_DICT ={
+    1: "create",
+    2: "view",
+    3: "complete",
+    4: "uncomplete",
+    5: "edit",
+    6: "delete",
+    7: "exit",
+}
+
+
 def menu() -> str:
     print(Fore.MAGENTA + "="*36)
     print(Fore.GREEN + "              OPTIONS")
