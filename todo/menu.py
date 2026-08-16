@@ -34,7 +34,7 @@ def user_choice(options: dict, prompt: str):
     while True:
         valid_choices = set(options.keys())
         try:
-            choice = int(input(prompt))
+            choice = int(input(Fore.LIGHTCYAN_EX + prompt))
             if choice in valid_choices:
                 return options[choice]
             else:
