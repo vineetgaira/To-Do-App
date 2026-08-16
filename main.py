@@ -1,8 +1,12 @@
-from todo.menu import menu, MENU_DICT
+from todo.menu import menu, user_choice, MENU_DICT
 
 
 def main():
-    menu()
+    while True:
+        menu()
+        choice = user_choice(MENU_DICT, "Choice: ")
+        break
+
 
 
 
