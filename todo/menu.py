@@ -30,4 +30,13 @@ def menu() -> str:
 
 
 def user_choice(options: dict, prompt: str):
-    pass
+    while True:
+        valid_choices = set(options.keys())
+        try:
+            choice = int(input(prompt))
+            if choice in valid_choices:
+                return options[choice]
+            else:
+                print(Fore.RED + "Please enter a valid choice.")
+        except ValueError:
+            print(Fore.RED + "Please enter a valid choice.")
