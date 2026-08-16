@@ -27,3 +27,7 @@ def menu() -> str:
     print(Fore.WHITE + " [5] " +  Fore.LIGHTCYAN_EX + "EDIT TASK")
     print(Fore.WHITE + " [6] " +  Fore.LIGHTCYAN_EX + "DELETE TASK") 
     print(Fore.WHITE + " [7] " +  Fore.LIGHTCYAN_EX + "EXIT") 
+
+
+def user_choice(options: dict, prompt: str):
+    pass
