@@ -1,6 +1,7 @@
 import colorama
 from colorama import Fore, Style
 colorama.init(autoreset=True)
+from todo.utils import show_error
 
 
 
@@ -37,6 +38,6 @@ def user_choice(options: dict, prompt: str):
             if choice in valid_choices:
                 return options[choice]
             else:
-                print(Fore.RED + "Please enter a valid choice.")
+                show_error("Please enter a valid choice.")
         except ValueError:
-            print(Fore.RED + "Please enter a valid choice.")
+            show_error("Please enter a valid choice.")
