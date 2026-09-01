@@ -81,5 +81,6 @@ task = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.")
 manager = TaskManager()
 
 manager.add_task(task)
+print(Task.total_tasks)
 task.get_task()
 manager.remove_task("301")
