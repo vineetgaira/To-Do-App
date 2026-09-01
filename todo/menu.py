@@ -1,1 +1,5 @@
-"Hello"
+class Menu:
+
+    pass
+
+"Git hub check"
