@@ -32,4 +32,6 @@ So what basically we need in a todo app:
         which is going to be selecting a data structure,
         for the basic CLI I will choose a list.
         But i don't know how to perform the Update operations on tasks stored in a list.
+        There are a lot of desing decisions that I have to take.
+        
     
