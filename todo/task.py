@@ -35,10 +35,13 @@ class Task:
 
     total_tasks = 0
 
-    def __init__(self, task_id, title, description):
+    def __init__(self, task_id, title, description, priority, due_date):
         self.task_id = task_id
         self.title = title
         self.description = description
+        self.priority = priority
+        self.status = "incomplete"
+        self.due_date = due_date
 
         Task.total_tasks += 1
 
@@ -67,7 +70,6 @@ class TaskManager:
 
         return task
 
-
     def remove_task(self, task_id):
         task = self.find_task(task_id)
 
@@ -77,10 +79,27 @@ class TaskManager:
             self.tasks.remove(task)
             print(f"Removed: {task.title}/{task.task_id}")
 
-task = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.")
+    def update_task(self, task_id, title = None, description = None, priority = None, due_date = None):
+        pass
+
+    def complete_task(self, task_id):
+        task = self.find_task(task_id)
+
+        if task is None:
+            print(f"No task found with Task ID: {task_id}.")
+        task.status = "complete"
+
+    def list_tasks(self):
+        for task in self.tasks:
+            task.get_task()
+
+
+        
+
+task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
+task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project.", "Medium", "26-09-2026")
 manager = TaskManager()
 
-manager.add_task(task)
-print(Task.total_tasks)
-task.get_task()
-manager.remove_task("301")
+manager.add_task(task1)
+manager.add_task(task2)
+manager.list_tasks()

@@ -4,7 +4,6 @@ The current focus wil be on these operations:
 Create task  
 View tasks
 Complete task
-Uncomplete task
 Edit task
 Delete task
 
@@ -22,3 +21,15 @@ Show statistics
 Export tasks
 Tests
 
+So what basically we need in a todo app: 
+    so there are two clasess, one which creates tasks : task
+    one that manages tasks : TaskManager
+    There is a decision that I have to make.
+    I have to perform 4 main operations:
+        Create, Read, Delete, Update
+        Create can be done through class Task.
+        But TaskManager has to decide how to store the tasks.
+        which is going to be selecting a data structure,
+        for the basic CLI I will choose a list.
+        But i don't know how to perform the Update operations on tasks stored in a list.
+    
