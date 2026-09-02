@@ -48,7 +48,10 @@ class Task:
     def get_task(self):
         print(f"Task ID: {self.task_id}")
         print(f"Title: {self.title}")
-        print(f"Description: {self.description}\n")
+        print(f"Description: {self.description}")
+        print(f"Status: {self.status.capitalize()}")
+        print(f"Priority: {self.priority}")
+        print(f"Due Date: {self.due_date}\n")
 class TaskManager:
 
     def __init__(self):
@@ -80,8 +83,22 @@ class TaskManager:
             print(f"Removed: {task.title}/{task.task_id}")
 
     def update_task(self, task_id, title = None, description = None, priority = None, due_date = None):
-        pass
+        task = self.find_task(task_id)
 
+        if task is None:
+            print(f"No task found with Task ID: {task_id}")
+            return
+
+        if title is not None:
+            task.title = title
+        if description is not None:
+            task.description = description
+        if priority is not None:
+            task.priority = priority
+        if due_date is not None:
+            task.due_date = due_date
+
+        print(f"Updated: {task.title}/{task.task_id}")
     def complete_task(self, task_id):
         task = self.find_task(task_id)
 
@@ -96,9 +113,12 @@ class TaskManager:
 
 task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
 task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project.", "Medium", "26-09-2026")
-task2 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
+task3 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
 manager = TaskManager()
 
-manager.add_task(task1)
-manager.add_task(task2)
+tasks = [task1, task2, task3]
+for task in tasks:
+    manager.add_task(task)
+
+manager.update_task("101", title= "Morning 5K drill")
 manager.list_tasks()
