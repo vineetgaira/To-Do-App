@@ -94,10 +94,9 @@ class TaskManager:
             task.get_task()
 
 
-        
-
 task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
 task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project.", "Medium", "26-09-2026")
+task2 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
 manager = TaskManager()
 
 manager.add_task(task1)
