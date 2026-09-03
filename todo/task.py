@@ -31,6 +31,9 @@ Eventually you'll have:
 This is where everything you've learned starts coming together.
 
 """
+
+import json
+import pathlib
 class Task:
 
     total_tasks = 0
@@ -45,17 +48,26 @@ class Task:
 
         Task.total_tasks += 1
 
-    def get_task(self):
-        print(f"Task ID: {self.task_id}")
-        print(f"Title: {self.title}")
-        print(f"Description: {self.description}")
-        print(f"Status: {self.status.capitalize()}")
-        print(f"Priority: {self.priority}")
-        print(f"Due Date: {self.due_date}\n")
+    def to_dict(self):
+        return {
+            "task_id": self.task_id,
+            "title": self.title,
+            "description": self.description,
+            "priority": self.priority,
+            "status": self.status,
+            "due_date": self.due_date,
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        task = cls(data["task_id"], data["title"], data["description"], data["priority"], data["due_date"])
+        task.status = data["status"]
+        return task
 class TaskManager:
 
-    def __init__(self):
-        self.tasks = []
+    def __init__(self, storage = None):
+        self.storage = storage
+        self.tasks = self.storage.load() if self.storage else []
 
     def add_task(self, task):
 
@@ -108,23 +120,42 @@ class TaskManager:
         
         task.status = "complete"
 
-    def list_tasks(self):
-        for task in self.tasks:
-            task.get_task()
+    def save(self):
+        if self.storage:
+            self.storage.save(self.tasks)
 
 class JSONStorage:
-    pass
+
+    def __init__(self, filepath ="tasks.json"):
+        self.filepath = filepath
+
+    def save(self, tasks):
+        data = [task.to_dict() for task in tasks]
+        with open (self.filepath, "w") as f:
+            json.dump(data, f, indent=4)
+
+    def load(self):
+        try:
+            with open(self.filepath, "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            return []
+
+        return [Task.from_dict(i) for i in data]
 
 
 task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
 task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project.", "Medium", "26-09-2026")
 task3 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
 
-manager = TaskManager()
+storage = JSONStorage()
+manager = TaskManager(storage = storage)
 
 tasks = [task1, task2, task3]
 for task in tasks:
     manager.add_task(task)
 
 manager.update_task("101", title= "Morning 5KM drill")
-manager.list_tasks()
+
+manager.save()
+print(storage.load())
