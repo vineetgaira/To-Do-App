@@ -29,8 +29,8 @@ Eventually you'll have:
     ↓
     Storage
 This is where everything you've learned starts coming together.
-"""
 
+"""
 class Task:
 
     total_tasks = 0
@@ -104,21 +104,27 @@ class TaskManager:
 
         if task is None:
             print(f"No task found with Task ID: {task_id}.")
+            return
+        
         task.status = "complete"
 
     def list_tasks(self):
         for task in self.tasks:
             task.get_task()
 
+class JSONStorage:
+    pass
+
 
 task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
 task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project.", "Medium", "26-09-2026")
 task3 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
+
 manager = TaskManager()
 
 tasks = [task1, task2, task3]
 for task in tasks:
     manager.add_task(task)
 
-manager.update_task("101", title= "Morning 5K drill")
+manager.update_task("101", title= "Morning 5KM drill")
 manager.list_tasks()
