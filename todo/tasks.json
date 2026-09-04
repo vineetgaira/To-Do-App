@@ -94,5 +94,29 @@
         "priority": "Low",
         "status": "incomplete",
         "due_date": "27-09-2026"
+    },
+    {
+        "task_id": "101",
+        "title": "Morning Run",
+        "description": "Run 5km in 18 minutes in the morning.",
+        "priority": "High",
+        "status": "incomplete",
+        "due_date": "26-09-2026"
+    },
+    {
+        "task_id": "102",
+        "title": "Work on Project",
+        "description": "Finish CRUD operations in Todo project.",
+        "priority": "Medium",
+        "status": "incomplete",
+        "due_date": "26-09-2026"
+    },
+    {
+        "task_id": "103",
+        "title": "Learn OOPs",
+        "description": "Learn property decorators",
+        "priority": "Low",
+        "status": "incomplete",
+        "due_date": "27-09-2026"
     }
 ]

@@ -1,6 +1,8 @@
+import json
+from todo.task import Task
 class JSONStorage:
 
-    def __init__(self, filepath ="tasks.json"):
+    def __init__(self, filepath ="todo/tasks.json"):
         self.filepath = filepath
 
     def save(self, tasks):
