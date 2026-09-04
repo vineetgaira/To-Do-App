@@ -1,9 +1,10 @@
 import json
+from pathlib import Path
 from todo.task import Task
 class JSONStorage:
 
-    def __init__(self, filepath ="todo/tasks.json"):
-        self.filepath = filepath
+    def __init__(self, filepath):
+        self.filepath = Path(filepath)
 
     def save(self, tasks):
         data = [task.to_dict() for task in tasks]

@@ -31,9 +31,6 @@ Eventually you'll have:
 This is where everything you've learned starts coming together.
 
 """
-
-import json
-import pathlib
 class Task:
 
     total_tasks = 0
