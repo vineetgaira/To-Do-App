@@ -1,6 +1,6 @@
 from todo.task import Task
 from todo.task_manager import TaskManager
-from todo.storage import JSONStorage
+from todo.storage import JSONStorage, CSVStorage
 
 
 task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
@@ -8,8 +8,9 @@ task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project."
 task3 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
 
 
-storage = JSONStorage("storage/tasks.json")
-manager = TaskManager(storage = storage)
+storage1 = JSONStorage("storage/tasks.json")
+storage2 = CSVStorage("storage/tasks.csv")
+manager = TaskManager(storage = storage2)
 
 tasks = [task1, task2, task3]
 for task in tasks:
@@ -18,4 +19,4 @@ for task in tasks:
 manager.update_task("101", title= "Morning 5KM drill")
 
 manager.save()
-print(storage.load())
+print(storage2.load())

@@ -1,0 +1,4 @@
+task_id,title,description,priority,status,due_date
+101,Morning 5KM drill,Run 5km in 18 minutes in the morning.,High,incomplete,26-09-2026
+102,Work on Project,Finish CRUD operations in Todo project.,Medium,incomplete,26-09-2026
+103,Learn OOPs,Learn property decorators,Low,incomplete,27-09-2026
