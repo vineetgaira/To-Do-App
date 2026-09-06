@@ -2,21 +2,53 @@ from todo.task import Task
 from todo.task_manager import TaskManager
 from todo.storage import JSONStorage, CSVStorage
 
+def menu():
 
-task1 = Task("101", "Morning Run", "Run 5km in 18 minutes in the morning.", "High", "26-09-2026")
-task2 = Task("102", "Work on Project", "Finish CRUD operations in Todo project.", "Medium", "26-09-2026")
-task3 = Task("103", "Learn OOPs", "Learn property decorators", "Low", "27-09-2026")
+    print("=" * 46) 
+    print("             MENU")
+    print("=" * 46) 
 
+    print(" [1] ", "Add Task")
+    print(" [2] ", "Update Task")
+    print(" [3] ", "Remove Task")
+    print(" [4] ", "See Tasks")
 
-storage1 = JSONStorage("storage/tasks.json")
-storage2 = CSVStorage("storage/tasks.csv")
-manager = TaskManager(storage = storage2)
+def get_choice():
+    valid_choices = {1, 2, 3, 4}
+    while True:
+        try:
+            choice = int(input("Choice: "))
+            if choice in valid_choices:
+                return choice
+            else:
+                print("Please enter a valid choice.")
+        except ValueError:
+            print('Please enter a valid choice.')
 
-tasks = [task1, task2, task3]
-for task in tasks:
-    manager.add_task(task)
+def main():
+    while True:
+        menu()
+        choice = get_choice()
+        storage1 = JSONStorage("storage/tasks.json") 
+        manager = TaskManager(storage=storage1)
+        storage2 = CSVStorage("storage/tasks.csv")
 
-manager.update_task("101", title= "Morning 5KM drill")
+        if choice == 1:
+            task_id = input("Task ID: ")
+            title = input("Title: ")
+            description = input("Description: ")
+            priority = input("Priority: ")
+            due_date = input("Due Date: ")
 
-manager.save()
-print(storage2.load())
+            task = Task(task_id, title, description, priority, due_date)
+            manager.save()
+
+            print("Task Added.")
+
+        if choice == 2:
+
+        
+        
+        
+
+    
