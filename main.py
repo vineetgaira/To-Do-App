@@ -25,27 +25,6 @@ def get_choice():
         except ValueError:
             print('Please enter a valid choice.')
 
-def main():
-    while True:
-        menu()
-        choice = get_choice()
-        storage1 = JSONStorage("storage/tasks.json") 
-        manager = TaskManager(storage=storage1)
-        storage2 = CSVStorage("storage/tasks.csv")
-
-        if choice == 1:
-            task_id = input("Task ID: ")
-            title = input("Title: ")
-            description = input("Description: ")
-            priority = input("Priority: ")
-            due_date = input("Due Date: ")
-
-            task = Task(task_id, title, description, priority, due_date)
-            manager.save()
-
-            print("Task Added.")
-
-        if choice == 2:
 
         
         
