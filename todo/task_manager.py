@@ -46,6 +46,7 @@ class TaskManager:
             task.due_date = due_date
 
         print(f"Updated: {task.title}/{task.task_id}")
+        
     def complete_task(self, task_id):
         task = self.find_task(task_id)
 
