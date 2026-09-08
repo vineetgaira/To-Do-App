@@ -55,10 +55,17 @@ class Task:
             "due_date": self.due_date,
         }
 
+    def get_task(self):
+        print(f"Task ID:{self.task_id}")
+        print(f"Title: {self.title}")
+        print(f"Description: {self.description}")
+        print(f"Priority: {self.priority}")
+        print(f"Status: {self.status}")
+        print(f"Due Date: {self.due_date}")
+
     @classmethod
     def from_dict(cls, data):
         task = cls(data["task_id"], data["title"], data["description"], data["priority"], data["due_date"])
         task.status = data["status"]
         return task
-
 

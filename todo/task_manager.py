@@ -58,3 +58,7 @@ class TaskManager:
     def save(self):
         if self.storage:
             self.storage.save(self.tasks)
+
+    def list_tasks(self):
+        for task in self.tasks:
+            task.get_task()
